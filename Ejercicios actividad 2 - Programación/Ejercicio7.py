@@ -12,4 +12,10 @@ totalMódulo=operador1%operador2
 totalPotencia=operador1**operador2
 totalDivisiónEntera=operador1//operador2
 
+print(f"El resultado de la suma es de {totalSuma}")
+print(f"El resultado de la resta es de {totalResta}")
+print(f"El resultado de la multiplicación es de {totalMultiplicación}")
 print(f"El resultado de la división es de {totalDivisión}")
+print(f"El resultado del módulo es de {totalMódulo}")
+print(f"El resultado de la potencia es de {totalPotencia}")
+print(f"El resultado de la división entera es de {totalDivisiónEntera}")

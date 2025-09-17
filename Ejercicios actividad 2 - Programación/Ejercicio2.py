@@ -8,12 +8,5 @@ var3=float(input("Ahora introduce un número decimal: "))
 
 
 print("El valor del número entero es de ",var1)
-if var2=="B":
-    print("Error")
-else:
-    print("La letra introducida es: ",var2)
-
-if var3==5.4:
-    print("Error")
-else:
-    print("El número decimal introducido es: ",var3)
+print("La letra introducida es: ",var2)
+print("El número decimal introducido es: ",var3)
