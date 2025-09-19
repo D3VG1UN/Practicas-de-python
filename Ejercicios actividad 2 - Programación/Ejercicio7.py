@@ -7,6 +7,8 @@ operador2=float(input("Introduce el segundo valor: "))
 totalSuma=operador1+operador2
 totalResta=operador1-operador2
 totalMultiplicación=operador1*operador2
+#La función round sirve para redondear, 
+#y el número siguiente establece a cual decimal
 totalDivisión=round(operador1/operador2, 2)
 totalMódulo=operador1%operador2
 totalPotencia=operador1**operador2
