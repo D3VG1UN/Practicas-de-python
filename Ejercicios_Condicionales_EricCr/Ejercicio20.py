@@ -4,6 +4,8 @@
 num1=int(input("Introduce el primer número entre 1 y 10: "))
 num2=int(input("Introduce el segundo número entre 1 y 10: "))
 
+#Puedo hacer estas comparaciones seguidas para establecer un límite.
+#Después utilizo el mismo código, aunque he tenido que moverlo todo hacia la derecha con el tab.
 if 1 <= num1 <= 10 and 1 <= num2 <= 10:
     if num1 > num2:
         print(f"El número {num1} es mayor que el número {num2}")

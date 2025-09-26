@@ -4,6 +4,8 @@
 num1=int(input("Introduce el primer número: "))
 num2=int(input("Introduce el segundo número: "))
 
+#Puedo introducir condicionales dentro de los condicionales, pero tienen que estar separados por tabs.
+#Son como capas, cada tab añade una capa y en cada capa puede haber un condicional.
 if num1 > num2:
     print(f"El número {num1} es mayor que el número {num2}")
 else:
