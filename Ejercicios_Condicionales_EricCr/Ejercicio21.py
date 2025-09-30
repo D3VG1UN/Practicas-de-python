@@ -7,7 +7,8 @@ valorB=float(input("Introduce el valor de b para la ecuación: "))
 valorC=float(input("Introduce el valor de c para la ecuación: "))
 
 Discriminante=valorB**2-4*valorA*valorC
-
+#El discriminante indica el tipo de solución
+#Es necesario aplicar la ecuación de segundo grado
 if Discriminante > 0:
     x1=(-valorB+math.sqrt(Discriminante))/(2*valorA)
     x2=(-valorB-math.sqrt(Discriminante))/(2*valorA)
