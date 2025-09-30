@@ -6,6 +6,8 @@ import math
 
 Número=float(input("Introduce un número para la raíz y la división: "))
 
+#math.sqrt, hacer referencia a square root, que es la raíz cuadrada, y entre paréntesis pones
+#el número del cual necesitas la raíz cuadrada.
 RaízCuadrada=round(math.sqrt(Número), 1)
 División=RaízCuadrada//2
 

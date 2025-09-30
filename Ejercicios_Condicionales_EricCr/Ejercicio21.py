@@ -12,3 +12,8 @@ if Discriminante > 0:
     x1=(-valorB+math.sqrt(Discriminante))/(2*valorA)
     x2=(-valorB-math.sqrt(Discriminante))/(2*valorA)
     print(f"El valor de x1 es {x1} y el valor de x2 es {x2}")
+elif Discriminante == 0:
+    x=-valorB/(2*valorA)
+    print(f"Una solución real doble, x es igual a {x}")
+else:
+   print("La raíz no puede ser un número negativo")
