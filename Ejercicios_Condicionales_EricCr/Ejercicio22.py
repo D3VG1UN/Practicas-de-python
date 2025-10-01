@@ -3,6 +3,7 @@
 
 nota=float(input("Introduce tu nota por teclado: "))
 
+#Necesito utilizar el "and" para establecer un límite
 if nota<5 and nota>=0:
     print(f"Has sacado un {nota} y has suspendido")
 elif nota>=5 and nota<=10:
