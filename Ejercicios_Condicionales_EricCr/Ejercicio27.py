@@ -3,7 +3,7 @@
 
 letra=str(input("Introduce una letra: "))
 
-
+#El True es innecesario, ya que el programa asume sin que se lo diga que el valor es cierto.
 if letra.islower()==True:
     print("La letra es minúscula.")
 elif letra.isupper()==True:
