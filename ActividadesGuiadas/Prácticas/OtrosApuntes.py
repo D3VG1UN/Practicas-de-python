@@ -6,7 +6,7 @@ var1,var2,var3="hello world",2,"19"
 
 print(var1, var2, var3)
 
-#Para usar los métodos string, el texto TIENE que ser un texto. Por lo tanto, debemos usar texto en vez de números.
+#Para usar los métodos string, la variable TIENE que ser un texto. Por lo tanto, debemos usar texto en vez de números.
 #Si después necesitamos un número, podemos reasignar un estado de variable. Por ejemplo:
 import math
 
