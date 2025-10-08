@@ -17,6 +17,9 @@ if diametro.isnumeric() and int(diametro)>=1 and int(diametro)<=10:
     area=math.pi*radio**2
     perimetro=2*(math.pi*radio)
     print(round(area,2))
+    print(round(perimetro,2))
+else:
+    ("no es un número")
 
 #Después de este código, añadimso código con operador lógico para comprobar si el número está entre 1 y 10
 #                                            (and, or y not)
