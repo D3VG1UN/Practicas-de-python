@@ -1,5 +1,4 @@
 #Programació del projecte password - criteri C.
-
 print("INSTRUCCIONES:")
 print("1. La longitud del password tiene que tener entre 6 y 8 caracteres.")
 print("2. Forzar los siguientes valores según la posición indicada: ")
@@ -11,14 +10,67 @@ print("     Posición 5: Una letra minúscula")
 print("     Posición 6: Un número mayor o igual que 6 y menor o igual que 9")
 print("     Posición 7: Uno de los siguientes símbolos &, /, #")
 print("     Posición 8: Un número menor o igual que 5")
-
+#Establecemos variables para luego cambiarlas si vemos que se cumplen o no las condiciones.
 password=str(input("Introduce una palabra clave: "))
+error0=0
+error1=0
+error2=0
+error3=0
+error4=0
+error5=0
+error6=0
+error7=0
+error8=0
 lonpassword=len(password)
 
+#utilizaré una serie de "ifs", en la que, si una condición no se cumple, 
+#se cambie el valor de esa variable a lo que se mostrará por pantalla pero el programa siga.
 if lonpassword>=6 and lonpassword<=8:
-    if password[0]>="1" and password[0]<="5":
-        print("Bienbien")
-    else:
-        print("Error en el caracter 1")
+    error0=1
 else:
     print(f"Error, el password tiene una longitud de {lonpassword} caracteres y no cumple los requisitos.")
+#Ahora, con el error establecido a 1 si la contraseña es correcta, puedo seguir el código
+if error0==1:
+    if password[0]>="1" and password[0]<="5":
+        error1=""
+    else:
+        error1="Error en el caracter 1"
+if error0==1:
+    if password[1].islower():
+        error2=""
+    else:
+        error2="Error en el caracter 2"
+if error0==1:
+    if password[2].isupper():
+        error3=""
+    else:
+        error3="Error en el caracter 3"
+if error0==1:
+    if password[3]=="*" or "_" or "@":
+        error4=""
+    else:
+        error4="Error en el caracter 4"
+if error0==1:
+    if password[4].islower():
+        error5=""
+    else:
+        error5="Error en el caracter 5"
+if error0==1:
+    if password[5]>="6" and password[5]<="9":
+        error6=""
+    else:
+        error6="Error en el caracter 6"
+if error0==1 and lonpassword<=7:
+    if password[6]=="&" or "/" or "#":
+        error7=""
+    else:
+        error7="Error en el caracter 7"
+else:
+    error7=""
+if error0==1 and lonpassword<=8:
+    if password[7]<="5":
+        error8=""
+    else:
+        error8="Error en el caracter 8"
+#ahora imprimo los valores por pantalla para que, en los que haya erro, se vea, y si no, se deje un espacio.
+print(error1,error2,error3,error4,error5,error6,error7,error8)
