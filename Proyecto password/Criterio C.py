@@ -12,6 +12,7 @@ print("     Posición 7: Uno de los siguientes símbolos &, /, #")
 print("     Posición 8: Un número menor o igual que 5")
 #Establecemos variables para luego cambiarlas si vemos que se cumplen o no las condiciones.
 password=str(input("Introduce una palabra clave: "))
+printfinal=0
 error0=0
 error1=0
 error2=0
@@ -29,6 +30,7 @@ if lonpassword>=6 and lonpassword<=8:
     error0=1
 else:
     print(f"Error, el password tiene una longitud de {lonpassword} caracteres y no cumple los requisitos.")
+    printfinal=1
 #Ahora, con el error establecido a 1 si la contraseña es correcta, puedo seguir el código
 if error0==1:
     if password[0]>="1" and password[0]<="5":
@@ -72,5 +74,9 @@ if error0==1 and lonpassword<=8:
         error8=""
     else:
         error8="Error en el caracter 8"
-#ahora imprimo los valores por pantalla para que, en los que haya erro, se vea, y si no, se deje un espacio.
-print(error1,error2,error3,error4,error5,error6,error7,error8)
+#ahora imprimo los valores por pantalla para que, en los que haya errores, se vea, y si no, se deje un espacio.
+#además, establezco una variable para que no se imprima (un espacio) si los requisitos no se cumplen.
+if printfinal==1:
+    print("")
+else:
+    print(error1,error2,error3,error4,error5,error6,error7,error8)
