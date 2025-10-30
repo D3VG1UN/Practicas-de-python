@@ -1,4 +1,4 @@
-#Programació del projecte password - criteri C.
+#Programación del proyecto password - criterio C.
 print("INSTRUCCIONES:")
 print("1. La longitud del password tiene que tener entre 6 y 8 caracteres.")
 print("2. Forzar los siguientes valores según la posición indicada: ")
@@ -47,8 +47,10 @@ if error0==1:
         error3=""
     else:
         error3="Error en el caracter 3"
+#he estado indagando un poco, ya que el código anterior me funcionaba incorrectamente, y he encontrado que la mejor
+#solución es esta, utilizar "in"
 if error0==1:
-    if password[3]=="*" or "_" or "@":
+    if password[3] in ["*", "_", "@"]:
         error4=""
     else:
         error4="Error en el caracter 4"
@@ -62,21 +64,25 @@ if error0==1:
         error6=""
     else:
         error6="Error en el caracter 6"
-if error0==1 and lonpassword<=7:
-    if password[6]=="&" or "/" or "#":
+if error0==1 and lonpassword>=7:
+    if password[6] in ["&", "/", "#"]:
         error7=""
     else:
         error7="Error en el caracter 7"
 else:
     error7=""
-if error0==1 and lonpassword<=8:
+    formatovalido=1
+if error0==1 and lonpassword==8:
     if password[7]<="5":
         error8=""
     else:
         error8="Error en el caracter 8"
+else:
+    error8=""
+
 #ahora imprimo los valores por pantalla para que, en los que haya errores, se vea, y si no, se deje un espacio.
 #además, establezco una variable para que no se imprima (un espacio) si los requisitos no se cumplen.
 if printfinal==1:
-    print("")
+    print("El formato del PASSWORD es válido")
 else:
     print(error1,error2,error3,error4,error5,error6,error7,error8)
