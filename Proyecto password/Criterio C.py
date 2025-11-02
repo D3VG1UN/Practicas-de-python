@@ -12,16 +12,7 @@ print("     Posición 7: Uno de los siguientes símbolos &, /, #")
 print("     Posición 8: Un número menor o igual que 5")
 #Establecemos variables para luego cambiarlas si vemos que se cumplen o no las condiciones.
 password=str(input("Introduce una palabra clave: "))
-printfinal=0
-error0=0
-error1=0
-error2=0
-error3=0
-error4=0
-error5=0
-error6=0
-error7=0
-error8=0
+error0=error1=error2=error3=error4=error5=error6=error7=error8=0
 lonpassword=len(password)
 
 #utilizaré una serie de "ifs", en la que, si una condición no se cumple, 
@@ -30,7 +21,6 @@ if lonpassword>=6 and lonpassword<=8:
     error0=1
 else:
     print(f"Error, el password tiene una longitud de {lonpassword} caracteres y no cumple los requisitos.")
-    printfinal=1
 #Ahora, con el error establecido a 1 si la contraseña es correcta, puedo seguir el código
 if error0==1:
     if password[0]>="1" and password[0]<="5":
@@ -71,7 +61,6 @@ if error0==1 and lonpassword>=7:
         error7="Error en el caracter 7"
 else:
     error7=""
-    formatovalido=1
 if error0==1 and lonpassword==8:
     if password[7]<="5":
         error8=""
@@ -79,10 +68,9 @@ if error0==1 and lonpassword==8:
         error8="Error en el caracter 8"
 else:
     error8=""
-
 #ahora imprimo los valores por pantalla para que, en los que haya errores, se vea, y si no, se deje un espacio.
-#además, establezco una variable para que no se imprima (un espacio) si los requisitos no se cumplen.
-if printfinal==1:
+#además, hago una concatenación de "ands" ya que, si no hay ningún error, todas las variables tendrán ese valor.
+if (error1=="" and error2=="" and error3=="" and error4=="" and error5=="" and error6=="" and error7=="" and error8==""):
     print("El formato del PASSWORD es válido")
 else:
     print(error1,error2,error3,error4,error5,error6,error7,error8)
