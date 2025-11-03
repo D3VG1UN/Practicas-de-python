@@ -61,6 +61,8 @@ if error0==1 and lonpassword>=7:
         error7="Error en el caracter 7"
 else:
     error7=""
+#en estos añado otro else, ya que, si la longitud es menor que 7, significa que tendrá 6 caracteres y, por tanto,
+#no necesariamente estará mal. Lo mismo pasa en el 8.
 if error0==1 and lonpassword==8:
     if password[7]<="5":
         error8=""
