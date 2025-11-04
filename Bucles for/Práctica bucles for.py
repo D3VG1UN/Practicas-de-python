@@ -4,5 +4,7 @@
 #pruebastring=str(input("Introduce una frase o una palabra: "))
 #frase="Cuando digo digo, digo diego"
 
-for prueba in range(1,1001):
-    print(prueba)
+for prueba in range(1,1000000000000001):
+    print(99999999999999999999999999999999999999999999999999999999999999999999999999999999999999)
+#for prueba in range(100):
+#    print("Hello world!")
