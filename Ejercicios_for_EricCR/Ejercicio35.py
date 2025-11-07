@@ -2,7 +2,7 @@
 #nombre
 
 nombre=input("Introduce tu nombre: ")
-num=int(input("Introduce la cantidad d eveces que quieres que tu nombre aparezca por pantalla: "))
+num=int(input("Introduce la cantidad de veces que quieres que tu nombre aparezca por pantalla: "))
 
 for num in range(num):
     print(nombre)

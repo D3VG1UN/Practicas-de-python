@@ -1,7 +1,9 @@
 #Programa que sume los n primeros números naturales. n Lo introduce el usuario.
 
-numNatural=1
+total=0
+numNaturales=1
 n=int(input("Introduce la cantidad de números que quieres sumar: "))
 
-for n in range (n):
-    numNatural=numNatural+1
+for i in range (n+1):
+    total=total+i
+print(total)
