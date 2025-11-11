@@ -2,5 +2,5 @@
 #de 3 en 3. El resultado debe aparecer por pantalla en una línea con los números separados por ‘,’
 i=0
 for x in range (34):
-    print(i, end=",")
+    print(i, end="," if x < 33 else "")
     i=i+3
