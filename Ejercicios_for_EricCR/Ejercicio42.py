@@ -1,6 +1,6 @@
 # Imprima el siguiente patrón con el ciclo for. 
 
-astotales=100
+astotales=2
 
 for i in range (1, astotales + 1):
     print("*" * i)
