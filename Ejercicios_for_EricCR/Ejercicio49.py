@@ -2,12 +2,15 @@
 #indique en qué posición de la palabra se encuentra la letra.
 
 palabra=input("Introduce la palabra 'secreta': ")
-letra=input("Introduce la letra: ")
-posiciones=[]
-posicionestotales=palabra.count(letra)
 
 for i in range(len(palabra)):
-    if palabra[i].lower==letra.lower:
-        posiciones.append(i+1)
-    print("La letra existe")
-    print(f"La letra se encuentra en la/s posicion/es {posiciones}")
+    letra=input("Introduce una letra: ")
+    contador=0
+    #Utilizamos el contador para ver cuántas veces aparece la letra en la palabra.  
+    for j in range(len(palabra)):
+        if palabra[j] == letra:
+            print(f"La letra se encuentra en la posición {j + 1}")
+            contador=contador + 1
+
+    if contador == 0:
+        print("La letra no aparece en la palabra")
