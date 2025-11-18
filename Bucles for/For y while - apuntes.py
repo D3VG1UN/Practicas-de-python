@@ -1,6 +1,7 @@
 #for
 #el for se utiliza cuando sabemos el número de vecesque se tiene que repetir
 #for j in range (0,10):
+#for j in 
 #for j in range (0,10,2):
 #for j in string:
 
@@ -22,18 +23,19 @@ print(totalvocales)
 
 #suma total de los numeros
 #número de vocales
-
-
-
-
-
-
-
-
-
-
-
-
-
+#------------------------------------------------------------------------------------------------------------------------------
 #while + condición
 #se utiliza cuando el número de vueltas está indeterminado/que dependa del usuario, si quiere salir del bucle o no
+#i=1
+#while i<10:
+#    print("hola" + str(i))
+#    i=i+1
+
+edad=int(input("Introduce tu edad: "))
+while edad>99 or edad<=0:
+    print("Edad incorrecta")
+    edad=int(input("Vuelve a introducir la edad: "))
+    if edad==999:
+        break
+    
+print("fin programa")
