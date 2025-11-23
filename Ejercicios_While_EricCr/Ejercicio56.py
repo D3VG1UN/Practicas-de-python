@@ -25,6 +25,7 @@ print("BEBIDAS")
 print("1. Coca cola - 2 €")
 print("2. Acuarius - 1.5 €")
 print("3. Agua - 1 €")
+pedidostotales=1
 pedidos=1
 preciobocata1=9
 preciobocata2=4.5
@@ -38,6 +39,7 @@ preciobebida3=1
 total=0
 
 while pedidos >= 1:
+    preguntar=0
     bocadillo=int(input("Introduzca el bocadillo del menú que desea (1, 2 o 3): "))
     complemento=int(input("Introduzca el acompañamiento que desea (1, 2 o 3): "))
     bebida=int(input("Introduzca la bebida que desea tomar (1, 2 o 3): "))
@@ -71,3 +73,29 @@ while pedidos >= 1:
     else:
         print("Por favor, introduzca una bebida correcta")
         pedidos=0
+    while preguntar==0: 
+        decision=input("Desea hacer otro pedido? (S/N) ")
+        if decision == "s" or decision == "S":
+            pedidostotales=pedidostotales+1
+            preguntar=1
+        elif decision == "n" or decision == "N":
+            preguntar=1
+            pedidos=0
+        else:
+            print("Introduce un valor válido")
+
+print("RESUMEN:")
+print(f"Número de pedidos: {pedidostotales}")
+print(f"Total a pagar: {total}")
+IVA=total/10
+totalIVA=total+IVA
+print(f"Total con IVA: {totalIVA}")
+
+if total >= 20 and total <30:
+    #Descuento del 5%
+    descuento1=(5*total)/100
+    print(f"El precio a pagar con el descuento del 5% es: {round(totalIVA-descuento1,2)}")
+elif total >=30:
+    #Descuento del 15%
+    descuento2=(15*total)/100
+    print(f"El total a pagar con el descuento de 15% es: {round(totalIVA-descuento2,2)}")
