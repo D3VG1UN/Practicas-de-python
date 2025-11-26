@@ -9,8 +9,8 @@ if longitudnumero==cifras:
         multiplicar=multiplicar*int(i)
         if int(i)%2==0:
             contadorpares+=1
+    print("Producto de cifras:",multiplicar)
+    print("Cifras pares:",contadorpares)
 else:
     print("Longitud incorrecta")
 
-print("Producto de cifras:",multiplicar)
-print("Cifras pares:",contadorpares)
