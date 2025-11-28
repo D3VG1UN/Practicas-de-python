@@ -38,6 +38,7 @@ preciobebida2=1.5
 preciobebida3=1
 total=0
 
+#Mi método quizás sea un poco optimizable, pero a mí me gusta hacerlo con muchas variables distintas porque me parece más ordenado
 while pedidos >= 1:
     preguntar=0
     bocadillo=int(input("Introduzca el bocadillo del menú que desea (1, 2 o 3): "))
