@@ -13,9 +13,27 @@ while tiradas<100:
     num=random.randint(1, 6)
     if num==1:
         uno+=1
-    
-    if num==2:
+        tiradas+=1
+    elif num==2:
         dos+=1
-    
-    if num==3:
+        tiradas+=1
+    elif num==3:
         tres+=1
+        tiradas+=1
+    elif num==4:
+        cuatro+=1
+        tiradas+=1
+    elif num==5:
+        cinco+=1
+        tiradas+=1
+    else:
+        seis+=1
+        tiradas+=1
+
+print(f"Uno: {uno}")
+print(f"Dos: {dos}")
+print(f"Tres: {tres}")
+print(f"Cuatro: {cuatro}")
+print(f"Cinco: {cinco}")
+print(f"Seis: {seis}")
+
