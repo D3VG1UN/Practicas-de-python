@@ -10,7 +10,6 @@ print("2 símbolos (*, _, @, &,/,#)")
 print("1 número mayor o igual que 6 y menor o igual que 9")
 
 password=input("Introduzca su contraseña: ")
-mensaje=""
 minusculas="qwertyuiopasdfghjklñzxcvbnm"
 mayusculas=minusculas.upper()
 
@@ -46,5 +45,4 @@ if nums_1_5 >= 2 and minus >= 2 and mayus >= 1 and simbolos >= 2 and nums6_9 >= 
     print("Password correcta")
 else:
     print("Password incorrecto")
-        
         
