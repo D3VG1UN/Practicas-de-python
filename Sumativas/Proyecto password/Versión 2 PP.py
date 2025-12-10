@@ -50,10 +50,10 @@ for x in range (0, 3):
 
 #Compruebo si todas las condiciones se cumplen y que no haya ningún en los dígitos.
     if nums_1_5 >= 2 and minus >= 2 and mayus >= 1 and simbolos >= 2 and nums6_9 >= 1 and incorrecto==0:
-        print("Password correcto")
+        print("Password correcto. Se cumplen las condiciones mínimas.")
         formatocorrecto+=1
     else:
-        print("Password incorrecto")
+        print("Password incorrecto. No se cumple alguna/s de las condiciones mínimas.")
         if formatoincorrecto < 3:
             formatoincorrecto+=1
         else:
