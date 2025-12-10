@@ -62,13 +62,13 @@ for x in range (0, 3):
 print(f"Ha introducido {formatocorrecto} passwords correctos y {formatoincorrecto} passwords incorrectos")
 
 #Contraseñas de testeo:
-#9Ip3C/* -------------------------------- Password incorrecto
-#2cA_p7/ -------------------------------- Password incorrecto (longitud)
-#3iO_m28/ ------------------------------- Password correcto
-#99io*/55 ------------------------------- Password incorrecto
-#4oLn8// -------------------------------- Password incorrecto
-#23uoV*#9 ------------------------------- Password correcto
-#/i4O94i/ ------------------------------- Password correcto
-#3O7nl4//_ ------------------------------ Password correcto
-#tI_73n_ -------------------------------- Password incorrecto (longitud incorrecta)
-#z95Lp&1@ ------------------------------- Password correcto
+#1. 9Ip3C/* -------------------------------- Password incorrecto
+#2. 2cA_p7/ -------------------------------- Password incorrecto (longitud)
+#3. 3iO_m28/ ------------------------------- Password correcto
+#4. 99io*/55 ------------------------------- Password incorrecto
+#5. 4oLn8// -------------------------------- Password incorrecto
+#6. 23uoV*#9 ------------------------------- Password correcto
+#7. /i4O94i/ ------------------------------- Password correcto
+#8. 3O7nl4//_ ------------------------------ Password correcto
+#9. tI_73n_ -------------------------------- Password incorrecto (longitud incorrecta)
+#10. z95Lp&1@ ------------------------------- Password correcto
