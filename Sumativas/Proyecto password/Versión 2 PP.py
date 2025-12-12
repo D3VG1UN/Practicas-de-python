@@ -6,6 +6,7 @@ print("     Dos números mayores o iguales que 1 y menores o iguales que 5")
 print("     Dos letras minúsculas")
 print("     Una letra mayúscula")
 print("     Dos de los siguientes símbolos *, _, @, &, /, #")
+#se puede repetir el mismo símbolo
 print("     Un número mayor o igual que 6 y menor o igual que 9")
 #He eliminado la última condición, y he puesto dos valores >= 1 o <=5, porque me causaba problemas en el código
 #Asimismo, he juntado un poco las condiciones para que las minúsculas, por ejemplo, no estén en líneas separadas
