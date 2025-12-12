@@ -15,7 +15,7 @@ for x in range (0, 3):
     password=input("Introduzca su contraseña: ")
     minusculas="qwertyuiopasdfghjklñzxcvbnm"
     mayusculas=minusculas.upper()
-
+    #a mí me gusta inizializar todas, o la mayoría, de variables que voy a utilizar, y así las tengo más controladas
     nums_1_5=0
     minus=0
     mayus=0
@@ -23,9 +23,11 @@ for x in range (0, 3):
     nums6_9=0
     incorrecto=0
 
-
+    #la longitud debe ser mayor a 8. No es <= 8 porque si es 8 también es correcta.
     if len(password) < 8: 
         print("La longitud del password es incorrecta")
+        formatoincorrecto+=1
+        #si la longitud es incorrecta, entonces el formato también es incorrecto
     else: 
         for i in range (len(password)):
             if password[i].isdigit():
@@ -54,11 +56,13 @@ for x in range (0, 3):
         formatocorrecto+=1
     else:
         print("Password incorrecto. No se cumple alguna/s de las condiciones mínimas.")
-        if formatoincorrecto < 3:
-            formatoincorrecto+=1
-        else:
-            formatoincorrecto=formatoincorrecto
+        formatoincorrecto+=1
 
+if formatoincorrecto <= 3:
+    formatoincorrecto=formatoincorrecto
+else:
+    formatoincorrecto=3
+    
 print(f"Ha introducido {formatocorrecto} passwords correctos y {formatoincorrecto} passwords incorrectos")
 
 #Contraseñas de testeo:
