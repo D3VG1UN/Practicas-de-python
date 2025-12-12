@@ -60,9 +60,13 @@ for x in range (0, 3):
 
 if formatoincorrecto <= 3:
     formatoincorrecto=formatoincorrecto
+elif formatocorrecto == 1:
+    formatoincorrecto=2
+elif formatocorrecto == 2:
+    formatoincorrecto=1
 else:
     formatoincorrecto=3
-    
+
 print(f"Ha introducido {formatocorrecto} passwords correctos y {formatoincorrecto} passwords incorrectos")
 
 #Contraseñas de testeo:
