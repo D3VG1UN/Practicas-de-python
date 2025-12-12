@@ -13,7 +13,7 @@ formatocorrecto=0
 formatoincorrecto=0
 for x in range (0, 3):
     password=input("Introduzca su contraseña: ")
-    minusculas="qwertyuiopasdfghjklñzxcvbnm"
+    minusculas="qwertyuiopasdfghjklñzxcvbnmç"
     mayusculas=minusculas.upper()
     #a mí me gusta inizializar todas, o la mayoría, de variables que voy a utilizar, y así las tengo más controladas
     nums_1_5=0
@@ -67,7 +67,7 @@ elif formatocorrecto == 2:
 else:
     formatoincorrecto=3
 
-print(f"Ha introducido {formatocorrecto} passwords correctos y {formatoincorrecto} passwords incorrectos")
+print(f"Ha introducido {formatocorrecto} password/s correcto/s y {formatoincorrecto} password/s incorrecto/s")
 
 #Contraseñas de testeo:
 #1. 9Ip3C/* -------------------------------- Password incorrecto
@@ -80,3 +80,5 @@ print(f"Ha introducido {formatocorrecto} passwords correctos y {formatoincorrect
 #8. 3O7nl4//_ ------------------------------ Password correcto
 #9. tI_73n_ -------------------------------- Password incorrecto (longitud incorrecta)
 #10. z95Lp&1@ ------------------------------- Password correcto
+#CONTRASEÑA DE UN COMPAÑERO QUE ME HA HECHO DARME CUENTA DE UN PROBLEMA:
+#2277ÇÇçç__ --------------------------------- No había incluido la ç en las letras
