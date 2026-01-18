@@ -6,8 +6,12 @@ letra=""
 milista=[]
 
 while repetir == "s":
-    letra=input("Introduce una letra ")
-    if not letra.isnumeric():
-        milista.append(letra)
+    letra=input("Introduce una letra: ")
+    if letra.isalpha():
+        if letra not in milista:
+            milista.append(letra)
+            repetir=input("Quieres introducir otra letra? (s/n): ")
     else:
-        repetir=="s"
+        repetir="s"
+
+print(milista)
