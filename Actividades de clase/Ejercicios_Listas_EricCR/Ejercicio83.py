@@ -36,6 +36,7 @@ for i in range(partidas):
 print("Tus puntuaciones son:", listapuntos)
 
 total=sum(listapuntos)
+#aquí utilizo el método de la pista ;)
 media=(partidas*8)/2
 
 print(f"Puntuación total: {total}")
