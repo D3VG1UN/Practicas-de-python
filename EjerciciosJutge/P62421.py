@@ -1,3 +1,4 @@
+#ejercicio 2. palabras
 palabras=input()
 lista1=palabras.split()
 lista1.reverse()
