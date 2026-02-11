@@ -6,10 +6,10 @@ minusculas="qwertyuiopasdfghjklñçzxcvbnm"
 mayusculas=minusculas.upper()
 
 if letra in minusculas:
-    letra.upper()
+    letra=letra.upper()
     print(letra)
 elif letra in mayusculas:
-    letra.lower()
+    letra=letra.lower()
     print(letra)
 else:
     print("Enter a letter")
