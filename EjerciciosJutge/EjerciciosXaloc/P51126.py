@@ -1,18 +1,63 @@
-#ejercicio 19. intervalos I
+# ejercicio 19. intervalos I
 
 intervalos=input()
-if "   " in intervalos:
-    listaintervalos=intervalos.split("   ")
+listaintervalos=intervalos.split()
 
-listavacia=[]
-intervaloI=listaintervalos[0]
-intervaloII=listaintervalos[1]
+num1=int(listaintervalos[0])
+num2=int(listaintervalos[1])
+num3=int(listaintervalos[2])
+num4=int(listaintervalos[3])
 
-listaintervalosI=intervaloI.split()
-listaintervalosII=intervaloII.split()
+salida=[]
 
-num1=listaintervalosI[0]
-num2=listaintervalosI[1]
+if num2<num3:
+    salida=[]
+elif num4<num1:
+    salida=[]
 
-num3=listaintervalosII[0]
-num4=listaintervalosII[1]
+# Si hay intersección seguimos con tu estilo de casos
+else:
+    if num1>num3:
+        if num4>num2:
+            salida.append(num1)
+            salida.append(num2)
+
+        if num4<num2:
+            salida.append(num1)
+            salida.append(num4)
+
+        if num4==num2:
+            salida.append(num1)
+            salida.append(num2)
+
+    elif num1<num3:
+        if num4>num2:
+            salida.append(num3)
+            salida.append(num2)
+
+        if num2>num4:
+            salida.append(num3)
+            salida.append(num4)
+
+        if num2==num4:
+            salida.append(num3)
+            salida.append(num2)
+
+    elif num1==num3:
+        if num4>num2:
+            salida.append(num3)
+            salida.append(num2)
+
+        if num2>num4:
+            salida.append(num3)
+            salida.append(num4)
+
+        if num2==num4:
+            salida.append(num3)
+            salida.append(num2)
+
+    else:
+        salida=[]
+
+salida = str(salida).replace(" ", "")
+print(salida)
