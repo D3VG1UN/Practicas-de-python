@@ -15,7 +15,6 @@ if num2<num3:
 elif num4<num1:
     salida=[]
 
-# Si hay intersección seguimos con tu estilo de casos
 else:
     if num1>num3:
         if num4>num2:
