@@ -10,4 +10,3 @@ r2=n%60
 s=r2
 
 print(h, m, s)
-#incompleto
