@@ -10,6 +10,7 @@ Lista_palabrasecreta=["Guatamalteco", "Alcantarillado", "Imaginación", "Trauma"
 partida="s"
 jugadas=0
 añadido=""
+cantidadLetrasCorrectas=0
 print("------------------------------------------------------")
 print("                Bienvenido al ahorcado                ")
 print("------------------------------------------------------")
@@ -17,25 +18,21 @@ print("------------------------------------------------------")
 while partida=="s":
     modo=3
     tiempoInicial=time.time()
-    if jugadas>0:
-        añadido=input("Quieres añadir una palabra a la lista?: (n/palabra) ").lower()
-    else:
-        print("Pásatelo bien")
+    añadido=input("Quieres añadir una palabra a la lista?: (n/palabra) ").lower() 
     
     if añadido=="n":
         print("Ninguna palabra ha sido añadida")
+    elif añadido=="s":
+        print(f"Has añadido la palabra {añadido}")
+        Lista_palabrasecreta.append(añadido)
     else:
-        if añadido=="":
-            print("Primera partida, eh?")
-        else:
-            print(f"Has añadido la palabra {añadido}")
-            Lista_palabrasecreta.append(añadido)
-    
+        print("Esa no es una opción válida")
+    #así se comprueba si quiere añadir alguna palabra. Me falta por hacer lo de que se borre de Lista_secreta
     Lista_errores=[]
     Lista_aciertos=[]
     palabrasecreta=random.choice(Lista_palabrasecreta)
     print("1. Jugar normal, con palabras y acentos")
-    print("2. Jugar sin acentos, ninguna palabra (incluso si normalmente tiene), no tendrá acentos")
+    print("2. Jugar sin acentos, ninguna palabra (incluso si normalmente tiene), tendrá acentos")
     while int(modo)>2:
         modo=input("Selecciona uno de los modos: ")
         if modo == "1":
@@ -52,7 +49,7 @@ while partida=="s":
             modo=input("Selecciona uno de los modos: ")
 
     palabrasecreta=palabrasecreta.upper()
-    print(palabrasecreta)
+    #print(palabrasecreta)
     Lista_partida=[]
     Lista_ahorcado=[]
     Lista_ahorcado_letras=["A","H","O","R","C","A","D","O"]
@@ -61,6 +58,7 @@ while partida=="s":
     maxintentos=8
     palabraIntento=""
     menu=""
+    cantidadLetrasTotales=len(palabrasecreta)
     #me gusta trabajar inicializando todas las variables al principio
 
     for i in palabrasecreta:
@@ -84,14 +82,18 @@ while partida=="s":
                 Lista_errores.append(letra)
                 print(f"Te quedan {8-intentos} intentos")
                 print(Lista_ahorcado)
+                print("Letras incorrectas o repetidas:",Lista_errores)
+                print("Letras correctas:",Lista_aciertos)
             elif letra in Lista_errores:
-                print("Ya has introducido esa letra. ")
-                Lista_ahorcado.append(Lista_ahorcado_letras[intentos])
-                intentos+=1
-                maxintentos-=1
-                Lista_errores.append(letra)
-                print(f"Te quedan {8-intentos} intentos")
-                print(Lista_ahorcado)
+                if letra in palabrasecreta:
+                    print("Ya has introducido esa letra. ")
+                    Lista_ahorcado.append(Lista_ahorcado_letras[intentos])
+                    intentos+=1
+                    maxintentos-=1
+                    print(f"Te quedan {8-intentos} intentos")
+                    print(Lista_ahorcado)
+                    print(Lista_partida)
+                    Lista_errores.append(letra)
             #para esto, he copiado el código de cuando fallas.
             else:
                 if letra in palabrasecreta:
@@ -102,6 +104,8 @@ while partida=="s":
                     print("¡Has encontrado una letra!")
                     print(Lista_partida)
                     Lista_aciertos.append(letra)
+                    print("Letras incorrectas o repetidas:",Lista_errores)
+                    print("Letras correctas:",Lista_aciertos)
                 else:
                     Lista_ahorcado.append(Lista_ahorcado_letras[intentos])
                     intentos+=1
@@ -110,14 +114,8 @@ while partida=="s":
                     Lista_errores.append(letra)
                     print(f"Te quedan {8-intentos} intentos")
                     print(Lista_ahorcado)
-
-            menu=input("Quieres ver la lista de letras incorrectas y correctas? (s/n) ").lower()    
-            if menu == "s":
-                    print("Letras incorrectas:",Lista_errores)
+                    print("Letras incorrectas o repetidas:",Lista_errores)
                     print("Letras correctas:",Lista_aciertos)
-            else:
-                    print("Sigue jugando!")
-            #No sé bien bien qué hacer en los elses, así que pongo un pequeño comentario.
             palabraIntento=input("Quieres probar a adivinar la palabra? (n/palabra): ")
             if palabraIntento=="n":
                     print("Vale")
@@ -139,6 +137,21 @@ while partida=="s":
                 else:
                     print("Error, la palabra no es la correcta")
             
+            if list(palabrasecreta)==Lista_partida:
+                print(f"¡Has acertado la palabra! Era {palabrasecreta}")
+                maxintentos=0
+                tiempoFinal=time.time()
+                print("")
+                print("Tus resultados de esta partida han sido: ")
+                print("Tus letras acertadas han sido:",Lista_aciertos)
+                print("Tus letras erróneas han sido:",Lista_errores)
+                print(f"Has tardado {round(tiempoFinal-tiempoInicial,2)} segundos")
+                print("Tus intentos se han quedado como...",Lista_partida)
+                print("Y la palabra era",palabrasecreta)
+                print("")
+                partida=input("Quieres jugar otra partida? (s/n) ").lower()
+            #No sé bien bien qué hacer en los elses, así que pongo un pequeño comentario.
+            
             if intentos == 8:
                 tiempoFinal=time.time()
                 print("Lo siento, te has quedado sin intentos...")
@@ -153,5 +166,4 @@ while partida=="s":
                 partida=input("Quieres jugar otra partida? (s/n) ").lower()
         else:
              print("Por favor, introduce una letra.")
-
 #ThingSpeak - Mathworks: una implantación para hacer estadísticas de victorias, derrotas, etc.
