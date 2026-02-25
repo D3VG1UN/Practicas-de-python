@@ -1,5 +1,5 @@
 #67. Realiza de nuevo el programa de Password (fase 2). El password debe tener las siguientes 
-#consideraciones:
+#consideraciones.:
 print("CONSIDERACIONES PARA ESTABLECER SU CONTRASEÑA:")
 print("Debe tener una longitud entre 6 y 8 caracteres.")
 print("Debe contener como mínimo:")
