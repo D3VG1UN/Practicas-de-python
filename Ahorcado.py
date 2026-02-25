@@ -1,4 +1,4 @@
-#ejercicio del ahorcado del Sway
+#ejercicio del ahorcado del Sway.
 import random
 import time
 
