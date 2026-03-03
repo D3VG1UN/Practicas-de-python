@@ -8,6 +8,7 @@ letrasacento={ "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u", "Á": "A",
 #y me ha parecido interesante para usar .get() más adelante y así poder programar el modo sin acentos
 partidas=0
 palabraañadida=""
+tauntTotal=0
 
 Lista_palabrasecreta=["Guatamalteco", "Alcantarillado", "Imaginación", "Trauma", "Wok", "Silenciador","Centrifugación","Pudrimiento", "Nueve", "Movimiento","Tremebundo","AbsoluteCinema","Torpedo","Visualización","Mitosis","Ornitorrinco","Yo","Lunes"]
 if partidas>0:
@@ -20,6 +21,8 @@ cantidadLetrasCorrectas=0
 print("------------------------------------------------------")
 print("                Bienvenido al ahorcado                ")
 print("------------------------------------------------------")
+victorias=0
+derrotas=0
 
 while jugar=="s":
     modo=3
@@ -55,32 +58,51 @@ while jugar=="s":
     print("1. Jugar normal, con palabras y acentos")
     print("2. Jugar sin acentos, ninguna palabra (incluso si normalmente tiene), tendrá acentos")
     print("------------------------------------------------------------------------------------")
-    
-    while int(modo)>2:
-        modo=input("Selecciona uno de los modos: ")
-        if modo == "1":
-            print("Modo normal seleccionado. Buena suerte")
-            print("")
-        elif modo == "2":
-            nuevapalabra=""
-            for i in range(len(palabrasecreta)):
-                a=palabrasecreta[i]
-                nuevapalabra+=letrasacento.get(a, a)
-                #devuelve la letra sin acento si existe, o la misma letra si no.
-            palabrasecreta=nuevapalabra
-            print("Modo sin acentos seleccionado. Buena suerte.")
-            print("")
-        elif modo == "":
-            print("Por intentar introducir un espacio, jugarás con acentos")
-            print("")
-            modo=1
-        else:
-            print("Ese modo de juego no existe")
-            modo=input("Selecciona uno de los modos: ")
-            
+    taunt=0
 
+    while modo!="seguir":
+        modo=input("Selecciona uno de los modos: ")
+        if len(modo)==1:
+            if modo == "1":
+                print("Modo normal seleccionado. Buena suerte")
+                print("")
+                modo=2
+            elif modo == "2":
+                nuevapalabra=""
+                for i in range(len(palabrasecreta)):
+                    a=palabrasecreta[i]
+                    nuevapalabra+=letrasacento.get(a, a)
+                    #devuelve la letra sin acento si existe, o la misma letra si no.
+                palabrasecreta=nuevapalabra
+                print("Modo sin acentos seleccionado. Buena suerte.")
+                print("")
+                modo=2
+            elif modo == "":
+                print("Por intentar introducir un espacio, jugarás con acentos")
+                print("")
+                modo="seguir"
+            else:
+                print("Ese modo de juego no existe")
+                modo=input("Selecciona uno de los modos: ")
+        else:
+            
+            if tauntTotal==0:    
+                print("Longitud incorrecta. Si vuelves a intentar introducir más de un número, te pondré la palabra más larga que conozca.")
+                taunt+=1
+                if taunt==2:
+                    print("Y mira que te lo advertí")
+                    tauntTotal+=1
+                    palabrasecreta="Electroencefalografista"
+                    modo="seguir"
+            elif tauntTotal==1:
+                print("Tío...")
+                palabrasecreta="Ácidodesoxiribonucleico"
+                modo="seguir"
+                tauntTotal+=1
+
+    if tauntTotal>1:
+        break
     palabrasecreta=palabrasecreta.upper()
-    #print(palabrasecreta)
     Lista_partida=[]
     Lista_ahorcado=[]
     Lista_ahorcado_letras=["A","H","O","R","C","A","D","O"]
@@ -158,6 +180,7 @@ while jugar=="s":
                 palabraIntento=palabraIntento.upper()
                 if palabraIntento==palabrasecreta:
                     print(f"¡Has acertado la palabra! Era {palabrasecreta}")
+                    victorias+=1
                     maxintentos=0
                     tiempoFinal=time.time()
                     tiempoTotal=tiempoFinal-tiempoInicial
@@ -171,12 +194,34 @@ while jugar=="s":
                     print("Tus intentos se han quedado como...",Lista_partida)
                     print("Y la palabra era",palabrasecreta)
                     print("")
+                    print("Victorias:",victorias)
+                    print("Derrotas:",derrotas)
+                    print("")
+                    fecha=time.ctime()
+                    #con "a" se crea un nuevo fichero, donde se almacenarán los datos
+                    #además, se posiciona al final, por lo que cada partida se guardará
+                    archivo_texto=open("DatosPartida.txt", "a")
+                    #usaré \n para hacer un salto de línea y que no se ponga todo en la misma
+                    #la función .write() hace... pues eso, escribir
+                    archivo_texto.write("----- Resultado de la partida -----\n")
+                    archivo_texto.write("Palabra secreta: " + palabrasecreta + "\n")
+                    archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + "\n")
+                    archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + "\n")
+                    archivo_texto.write("Intentos realizados: " + str(jugadas) + "\n")
+                    archivo_texto.write("Fecha de la partida: " + str(fecha) + "\n")
+                    archivo_texto.write("\n")
+                    print("")
+                    #y close() cierra y guarda el archivo 
+                    archivo_texto.close()
+                    print("La información ha sido guardada en un archivo txt")
+                    print("")
                     jugar=input("Quieres jugar otra partida? (s/n) ").lower()
                 else:
                     print("Error, la palabra no es la correcta")
             
             if list(palabrasecreta)==Lista_partida:
                 print(f"¡Has acertado la palabra! Era {palabrasecreta}")
+                victorias+=1
                 maxintentos=0
                 tiempoFinal=time.time()
                 tiempoTotal=tiempoFinal-tiempoInicial
@@ -190,9 +235,31 @@ while jugar=="s":
                 print("Tus intentos se han quedado como...",Lista_partida)
                 print("Y la palabra era",palabrasecreta)
                 print("")
+                print("")
+                print("Victorias:",victorias)
+                print("Derrotas:",derrotas)
+                print("")
+                fecha=time.ctime()
+                #con "a" se crea un nuevo fichero, donde se almacenarán los datos
+                #además, se posiciona al final, por lo que cada partida se guardará
+                archivo_texto=open("DatosPartida.txt", "a")
+                #usaré \n para hacer un salto de línea y que no se ponga todo en la misma
+                #la función .write() hace... pues eso, escribir
+                archivo_texto.write("----- Resultado de la partida -----\n")
+                archivo_texto.write("Palabra secreta: " + palabrasecreta + "\n")
+                archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + "\n")
+                archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + "\n")
+                archivo_texto.write("Intentos realizados: " + str(jugadas) + "\n")
+                archivo_texto.write("Fecha de la partida: " + str(fecha) + "\n")
+                archivo_texto.write("\n")
+                #y close() cierra y guarda el archivo 
+                archivo_texto.close()
+                print("La información ha sido guardada en un archivo txt")
+                print("")
                 jugar=input("Quieres jugar otra partida? (s/n) ").lower()
             
             if intentos == 8:
+                derrotas+=1
                 tiempoFinal=time.time()
                 tiempoTotal=tiempoFinal-tiempoInicial
                 tiempoMinutos=tiempoTotal//60
@@ -206,6 +273,27 @@ while jugar=="s":
                 print(f"Has tardado {tiempoMinutos} minutos y {tiempoSegundos} segundos")
                 print("Tus intentos se han quedado como...",Lista_partida)
                 print("Y la palabra era",palabrasecreta)
+                print("")
+                print("Victorias:",victorias)
+                print("Derrotas:",derrotas)
+                print("")
+                fecha=time.ctime()
+                #con "a" se crea un nuevo fichero, donde se almacenarán los datos
+                #además, se posiciona al final, por lo que cada partida se guardará
+                archivo_texto=open("DatosPartida.txt", "a")
+                #usaré \n para hacer un salto de línea y que no se ponga todo en la misma
+                #la función .write() hace... pues eso, escribir
+                archivo_texto.write("----- Resultado de la partida -----\n")
+                archivo_texto.write("Palabra secreta: " + palabrasecreta + "\n")
+                archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + "\n")
+                archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + "\n")
+                archivo_texto.write("Intentos realizados: " + str(jugadas) + "\n")
+                archivo_texto.write("Fecha de la partida: " + str(fecha) + "\n")
+                archivo_texto.write("\n")
+                #y close() cierra y guarda el archivo 
+                archivo_texto.close()
+                print("")
+                print("La información ha sido guardada en un archivo txt")
                 print("")
                 jugar=input("Quieres jugar otra partida? (s/n) ").lower()
         else:
