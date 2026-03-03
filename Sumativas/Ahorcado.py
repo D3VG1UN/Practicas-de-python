@@ -5,9 +5,15 @@ import time
 
 letrasacento={ "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u", "Á": "A", "É": "E", "Í": "I", "Ó": "O", "Ú": "U" }
 #aqui he tenido que convertir la variable en un diccionario de python, un método que he indagado 
-#y me ha parecido interesante para usar .get() más adelante
+#y me ha parecido interesante para usar .get() más adelante y así poder programar el modo sin acentos
+partidas=0
+palabraañadida=""
+
 Lista_palabrasecreta=["Guatamalteco", "Alcantarillado", "Imaginación", "Trauma", "Wok", "Silenciador","Centrifugación","Pudrimiento", "Nueve", "Movimiento","Tremebundo","AbsoluteCinema","Torpedo","Visualización","Mitosis","Ornitorrinco","Yo","Lunes"]
-partida="s"
+if partidas>0:
+    Lista_palabrasecreta.remove(palabraañadida)
+
+jugar="s"
 jugadas=0
 añadido=""
 cantidadLetrasCorrectas=0
@@ -15,17 +21,31 @@ print("------------------------------------------------------")
 print("                Bienvenido al ahorcado                ")
 print("------------------------------------------------------")
 
-while partida=="s":
+while jugar=="s":
     modo=3
     tiempoInicial=time.time()
-    añadido=input("Quieres añadir una palabra a la lista?: (n/palabra) ").lower() 
     
-    if añadido=="n":
-        print("Ninguna palabra ha sido añadida")
-    else:
-        print(f"Has añadido la palabra {añadido}")
-        Lista_palabrasecreta.append(añadido)
-    #así se comprueba si quiere añadir alguna palabra. Me falta por hacer lo de que se borre de Lista_secreta
+    añadidovalido=0
+    while añadidovalido==0:
+        añadido=input("Quieres añadir una palabra a la lista?: (n/s) ").lower() 
+        if añadido=="n":
+            print("Ninguna palabra ha sido añadida")
+            print("")
+            añadidovalido=1
+            partidas+=1
+        else:
+            if añadido=="s":
+                palabraañadida=input("Qué palabra quieres añadir?: ")
+                print(f"Has añadido la palabra {palabraañadida}")
+                Lista_palabrasecreta.append(palabraañadida)
+                añadidovalido=1
+                partidas+=1
+            else:
+                print("Esa no es una respuesta válida. Vuelve a intentarlo.")
+                print("")
+                añadidovalido=0
+
+    #así se comprueba si quiere añadir alguna palabra, y si no pone ni n ni s, lo vuelve a preguntar
     Lista_errores=[]
     Lista_aciertos=[]
     palabrasecreta=random.choice(Lista_palabrasecreta)
@@ -36,6 +56,7 @@ while partida=="s":
         modo=input("Selecciona uno de los modos: ")
         if modo == "1":
             print("Modo normal seleccionado. Buena suerte")
+            print("")
         elif modo == "2":
             nuevapalabra=""
             for i in range(len(palabrasecreta)):
@@ -43,12 +64,16 @@ while partida=="s":
                 nuevapalabra+=letrasacento.get(a, a)
                 #devuelve la letra sin acento si existe, o la misma letra si no.
             palabrasecreta=nuevapalabra
+            print("Modo sin acentos seleccionado. Buena suerte.")
+            print("")
         elif modo == "":
             print("Por intentar introducir un espacio, jugarás con acentos")
+            print("")
             modo=1
         else:
             print("Ese modo de juego no existe")
             modo=input("Selecciona uno de los modos: ")
+            
 
     palabrasecreta=palabrasecreta.upper()
     #print(palabrasecreta)
@@ -67,12 +92,12 @@ while partida=="s":
         Lista_partida.append("_")
         Palabrasecreta_lista.append(i)
 
-    print(Lista_partida)
-
     while maxintentos>0:
         jugadas+=1
         print("")
+        print(Lista_partida)
         letra=input("Intenta adivinar la letra: ")
+        print("")
         if letra.isalpha() and len(letra)==1:
             #como he mencionado en el word, compruebo si está en el ALFAbeto. *guiño guiño*
             letra=letra.upper()
@@ -139,7 +164,7 @@ while partida=="s":
                     print("Tus intentos se han quedado como...",Lista_partida)
                     print("Y la palabra era",palabrasecreta)
                     print("")
-                    partida=input("Quieres jugar otra partida? (s/n) ").lower()
+                    jugar=input("Quieres jugar otra partida? (s/n) ").lower()
                 else:
                     print("Error, la palabra no es la correcta")
             
@@ -155,20 +180,21 @@ while partida=="s":
                 print("Tus intentos se han quedado como...",Lista_partida)
                 print("Y la palabra era",palabrasecreta)
                 print("")
-                partida=input("Quieres jugar otra partida? (s/n) ").lower()
+                jugar=input("Quieres jugar otra partida? (s/n) ").lower()
             
             if intentos == 8:
                 tiempoFinal=time.time()
+                tiempoTotal=tiempoFinal-tiempoInicial
                 print("Lo siento, te has quedado sin intentos...")
                 print("")
                 print("Tus resultados de esta partida han sido: ")
                 print("Tus letras acertadas han sido:",Lista_aciertos)
                 print("Tus letras erróneas han sido:",Lista_errores)
-                print(f"Has tardado {tiempoFinal-tiempoInicial} segundos")
+                print(f"Has tardado {tiempoTotal} segundos")
                 print("Tus intentos se han quedado como...",Lista_partida)
                 print("Y la palabra era",palabrasecreta)
                 print("")
-                partida=input("Quieres jugar otra partida? (s/n) ").lower()
+                jugar=input("Quieres jugar otra partida? (s/n) ").lower()
         else:
              print("Por favor, introduce una letra.")
 
