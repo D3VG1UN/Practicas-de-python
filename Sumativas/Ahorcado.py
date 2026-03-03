@@ -49,8 +49,12 @@ while jugar=="s":
     Lista_errores=[]
     Lista_aciertos=[]
     palabrasecreta=random.choice(Lista_palabrasecreta)
+    print("")
+    print("Modos de juego: ")
+    print("------------------------------------------------------------------------------------")
     print("1. Jugar normal, con palabras y acentos")
     print("2. Jugar sin acentos, ninguna palabra (incluso si normalmente tiene), tendrá acentos")
+    print("------------------------------------------------------------------------------------")
     
     while int(modo)>2:
         modo=input("Selecciona uno de los modos: ")
@@ -156,11 +160,14 @@ while jugar=="s":
                     print(f"¡Has acertado la palabra! Era {palabrasecreta}")
                     maxintentos=0
                     tiempoFinal=time.time()
+                    tiempoTotal=tiempoFinal-tiempoInicial
+                    tiempoMinutos=tiempoTotal//60
+                    tiempoSegundos=round(tiempoTotal%60, 2)
                     print("")
                     print("Tus resultados de esta partida han sido: ")
                     print("Tus letras acertadas han sido:",Lista_aciertos)
                     print("Tus letras erróneas han sido:",Lista_errores)
-                    print(f"Has tardado {round(tiempoFinal-tiempoInicial,2)} segundos")
+                    print(f"Has tardado {tiempoMinutos} minutos y {tiempoSegundos} segundos")
                     print("Tus intentos se han quedado como...",Lista_partida)
                     print("Y la palabra era",palabrasecreta)
                     print("")
@@ -172,11 +179,14 @@ while jugar=="s":
                 print(f"¡Has acertado la palabra! Era {palabrasecreta}")
                 maxintentos=0
                 tiempoFinal=time.time()
+                tiempoTotal=tiempoFinal-tiempoInicial
+                tiempoMinutos=tiempoTotal//60
+                tiempoSegundos=round(tiempoTotal%60,2)
                 print("")
                 print("Tus resultados de esta partida han sido: ")
                 print("Tus letras acertadas han sido:",Lista_aciertos)
                 print("Tus letras erróneas han sido:",Lista_errores)
-                print(f"Has tardado {round(tiempoFinal-tiempoInicial,2)} segundos")
+                print(f"Has tardado {tiempoMinutos} minutos y {tiempoSegundos} segundos")
                 print("Tus intentos se han quedado como...",Lista_partida)
                 print("Y la palabra era",palabrasecreta)
                 print("")
@@ -185,12 +195,15 @@ while jugar=="s":
             if intentos == 8:
                 tiempoFinal=time.time()
                 tiempoTotal=tiempoFinal-tiempoInicial
+                tiempoMinutos=tiempoTotal//60
+                tiempoSegundos=round(tiempoTotal%60,2)
+                #el código es el mismo - división entera para los minutos, y lo que sobra son los segundos
                 print("Lo siento, te has quedado sin intentos...")
                 print("")
                 print("Tus resultados de esta partida han sido: ")
                 print("Tus letras acertadas han sido:",Lista_aciertos)
                 print("Tus letras erróneas han sido:",Lista_errores)
-                print(f"Has tardado {tiempoTotal} segundos")
+                print(f"Has tardado {tiempoMinutos} minutos y {tiempoSegundos} segundos")
                 print("Tus intentos se han quedado como...",Lista_partida)
                 print("Y la palabra era",palabrasecreta)
                 print("")
