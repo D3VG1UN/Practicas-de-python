@@ -11,8 +11,7 @@ palabraañadida=""
 tauntTotal=0
 
 Lista_palabrasecreta=["Guatamalteco", "Alcantarillado", "Imaginación", "Trauma", "Wok", "Silenciador","Centrifugación","Pudrimiento", "Nueve", "Movimiento","Tremebundo","AbsoluteCinema","Torpedo","Visualización","Mitosis","Ornitorrinco","Yo","Lunes","Cerebelo"]
-if partidas>0:
-    Lista_palabrasecreta.remove(palabraañadida)
+
 
 jugar="s"
 jugadas=0
@@ -52,6 +51,8 @@ while jugar=="s":
     Lista_errores=[]
     Lista_aciertos=[]
     palabrasecreta=random.choice(Lista_palabrasecreta)
+    if palabrasecreta==palabraañadida:
+        Lista_palabrasecreta.remove(palabraañadida)
     print("")
     print("Modos de juego: ")
     print("------------------------------------------------------------------------------------")
