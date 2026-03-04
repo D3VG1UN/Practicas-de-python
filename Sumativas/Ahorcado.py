@@ -10,7 +10,7 @@ partidas=0
 palabraañadida=""
 tauntTotal=0
 
-Lista_palabrasecreta=["Guatamalteco", "Alcantarillado", "Imaginación", "Trauma", "Wok", "Silenciador","Centrifugación","Pudrimiento", "Nueve", "Movimiento","Tremebundo","AbsoluteCinema","Torpedo","Visualización","Mitosis","Ornitorrinco","Yo","Lunes"]
+Lista_palabrasecreta=["Guatamalteco", "Alcantarillado", "Imaginación", "Trauma", "Wok", "Silenciador","Centrifugación","Pudrimiento", "Nueve", "Movimiento","Tremebundo","AbsoluteCinema","Torpedo","Visualización","Mitosis","Ornitorrinco","Yo","Lunes","Cerebelo"]
 if partidas>0:
     Lista_palabrasecreta.remove(palabraañadida)
 
@@ -66,7 +66,7 @@ while jugar=="s":
             if modo == "1":
                 print("Modo normal seleccionado. Buena suerte")
                 print("")
-                modo=2
+                modo="seguir"
             elif modo == "2":
                 nuevapalabra=""
                 for i in range(len(palabrasecreta)):
@@ -76,7 +76,7 @@ while jugar=="s":
                 palabrasecreta=nuevapalabra
                 print("Modo sin acentos seleccionado. Buena suerte.")
                 print("")
-                modo=2
+                modo="seguir"
             elif modo == "":
                 print("Por intentar introducir un espacio, jugarás con acentos")
                 print("")
