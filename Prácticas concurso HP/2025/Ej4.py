@@ -1,6 +1,6 @@
 #CodeWars
 
-ano=int(input("Introduce un año: "))
+ano=int(input())
 edicion=ano-2015
 
 if ano <= 2025 and ano >= 2015 and not ano==2020:
