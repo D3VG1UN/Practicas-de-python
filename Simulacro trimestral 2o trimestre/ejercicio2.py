@@ -1,4 +1,4 @@
-contrasenas=input().split("-")
+contrasenas=input("Introduce las contraseñas separadas por guiones: ").split("-")
 
 contra_segura=[]
 contra_debil=[]
