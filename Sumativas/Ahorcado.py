@@ -126,7 +126,7 @@ while jugar=="s":
         letra=input("Intenta adivinar la letra: ")
         print("")
         if letra.isalpha() and len(letra)==1:
-            #como he mencionado en el word, compruebo si está en el ALFAbeto. *guiño guiño*
+            #compruebo si está en el ALFAbeto. *guiño guiño*
             letra=letra.upper()
 
             if letra in Lista_aciertos:
