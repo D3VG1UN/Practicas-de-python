@@ -207,12 +207,11 @@ while jugar=="s":
                     archivo_texto=open("DatosPartida.txt", "a")
                     #usaré \n para hacer un salto de línea y que no se ponga todo en la misma
                     #la función .write() hace... pues eso, escribir
-                    archivo_texto.write("----- Resultado de la partida -----\n")
-                    archivo_texto.write("Palabra secreta: " + palabrasecreta + "\n")
-                    archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + "\n")
-                    archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + "\n")
-                    archivo_texto.write("Intentos realizados: " + str(jugadas) + "\n")
-                    archivo_texto.write("Fecha de la partida: " + str(fecha) + "\n")
+                    archivo_texto.write("Palabra secreta: " + palabrasecreta + ", ")
+                    archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + ", ")
+                    archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + ", ")
+                    archivo_texto.write("Intentos realizados: " + str(jugadas) + ", ")
+                    archivo_texto.write("Fecha de la partida: " + str(fecha))
                     archivo_texto.write("\n")
                     print("")
                     #y close() cierra y guarda el archivo 
@@ -249,12 +248,11 @@ while jugar=="s":
                 archivo_texto=open("DatosPartida.txt", "a")
                 #usaré \n para hacer un salto de línea y que no se ponga todo en la misma
                 #la función .write() hace... pues eso, escribir
-                archivo_texto.write("----- Resultado de la partida -----\n")
-                archivo_texto.write("Palabra secreta: " + palabrasecreta + "\n")
-                archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + "\n")
-                archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + "\n")
-                archivo_texto.write("Intentos realizados: " + str(jugadas) + "\n")
-                archivo_texto.write("Fecha de la partida: " + str(fecha) + "\n")
+                archivo_texto.write("Palabra secreta: " + palabrasecreta + ", ")
+                archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + ", ")
+                archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + ", ")
+                archivo_texto.write("Intentos realizados: " + str(jugadas) + ", ")
+                archivo_texto.write("Fecha de la partida: " + str(fecha))
                 archivo_texto.write("\n")
                 #y close() cierra y guarda el archivo 
                 archivo_texto.close()
@@ -287,12 +285,11 @@ while jugar=="s":
                 archivo_texto=open("DatosPartida.txt", "a")
                 #usaré \n para hacer un salto de línea y que no se ponga todo en la misma
                 #la función .write() hace... pues eso, escribir
-                archivo_texto.write("----- Resultado de la partida -----\n")
-                archivo_texto.write("Palabra secreta: " + palabrasecreta + "\n")
-                archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + "\n")
-                archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + "\n")
-                archivo_texto.write("Intentos realizados: " + str(jugadas) + "\n")
-                archivo_texto.write("Fecha de la partida: " + str(fecha) + "\n")
+                archivo_texto.write("Palabra secreta: " + palabrasecreta + ", ")
+                archivo_texto.write("Letras acertadas: " + str(Lista_aciertos) + ", ")
+                archivo_texto.write("Letras incorrectas: " + str(Lista_errores) + ", ")
+                archivo_texto.write("Intentos realizados: " + str(jugadas) + ", ")
+                archivo_texto.write("Fecha de la partida: " + str(fecha))
                 archivo_texto.write("\n")
                 #y close() cierra y guarda el archivo 
                 archivo_texto.close()
