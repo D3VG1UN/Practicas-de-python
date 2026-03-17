@@ -99,9 +99,12 @@ while jugar=="s":
                 print("Tío...")
                 palabrasecreta="Ácidodesoxiribonucleico"
                 modo="seguir"
+                dos="si"
                 tauntTotal+=1
+            else:
+                tauntTotal=3
 
-    if tauntTotal>1:
+    if tauntTotal>2:
         break
     palabrasecreta=palabrasecreta.upper()
     Lista_partida=[]
@@ -180,7 +183,7 @@ while jugar=="s":
             else:
                 palabraIntento=palabraIntento.upper()
                 if palabraIntento==palabrasecreta:
-                    print(f"¡Has acertado la palabra! Era {palabrasecreta}")
+                    print("¡Has acertado la palabra!")
                     victorias+=1
                     maxintentos=0
                     tiempoFinal=time.time()
